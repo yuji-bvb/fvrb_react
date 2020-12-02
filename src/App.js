@@ -1,58 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import Main from "./features/profile/Main";
+import Navbar from "./features/profile/Navbar";
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import cyan from "@material-ui/core/colors/cyan";
+import "./app.module.css";
 
-function App() {
+const theme = createMuiTheme({
+  palette: {
+    type: "dark",
+    primary: cyan,
+    secondary: {
+      main: "#f44336",
+    },
+  },
+  typography: {
+    fontFamily: ["Comic Neue", "M PLUS 1p", "Kosugi Maru"].join(","),
+    color: "lightgray",
+  },
+});
+theme.typography.h3 = {
+  [theme.breakpoints.down("sm")]: {
+    fontSize: 35,
+  },
+  [theme.breakpoints.down("xs")]: {
+    fontSize: 20,
+  },
+  fontSize: 50,
+};
+
+theme.typography.h6 = {
+  [theme.breakpoints.down("sm")]: {
+    fontSize: 20,
+  },
+  [theme.breakpoints.down("xs")]: {
+    fontSize: 17,
+  },
+  fontSize: 20,
+};
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <MuiThemeProvider theme={theme}>
+      <Navbar />
+      <div className="container">
+        <Main />
+      </div>
+    </MuiThemeProvider>
   );
-}
+};
 
 export default App;

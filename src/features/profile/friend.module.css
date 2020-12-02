@@ -1,0 +1,37 @@
+.list_item {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+.mail {
+  background-color: transparent;
+  color: lightgray;
+  margin-right: 25px;
+  font-size: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  vertical-align: top;
+}
+.modal_title {
+  text-align: center;
+}
+.btn_modal {
+  background-color: transparent;
+  color: lightgray;
+  text-align: right;
+  margin-right: 20px;
+  font-size: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.btn_posi {
+  text-align: right;
+}
+@media (max-width: 480px) {
+  .btn_modal {
+    font-size: 30px;
+  }
+}

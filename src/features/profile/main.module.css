@@ -1,0 +1,146 @@
+/* main.js(profileManager.js) */
+.app_details {
+  background-color: #292f38;
+  width: 100%;
+  min-width: 250px;
+  height: 770px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+/* (profile.js) */
+.app_profiles {
+  background-color: #292f38;
+  width: 100%;
+  min-width: 250px;
+  height: 770px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+/* (ask.js) */
+.app_friends {
+  background-color: #292f38;
+  width: 100%;
+  min-width: 200px;
+  height: 400px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  overflow-y: auto;
+}
+/* (inbox.js) */
+.app_dms {
+  background-color: #292f38;
+  width: 100%;
+  min-width: 250px;
+  height: 400px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  overflow-y: auto;
+}
+.task_list {
+  width: 100%;
+  margin: auto;
+  max-height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.task_list ul {
+  padding-left: 10px;
+}
+
+.badge {
+  background-color: transparent;
+  color: grey;
+  margin-right: 7px;
+  font-size: 22px;
+  border: none;
+  outline: none;
+}
+
+@media (max-width: 1919px) {
+  .app_details {
+    height: 850px;
+  }
+  .app_profiles {
+    height: 850px;
+  }
+}
+
+@media (max-width: 959px) {
+  .app_profiles {
+    width: 80%;
+    min-width: 200px;
+    margin: 0 auto 10px;
+  }
+
+  .app_details {
+    width: 80%;
+    min-width: 200px;
+    margin: 0 auto 10px;
+  }
+  .app_friends {
+    width: 80%;
+    min-width: 200px;
+    margin: 0 auto 10px;
+  }
+
+  .app_dms {
+    width: 80%;
+    min-width: 200px;
+    margin: 0 auto 10px;
+  }
+}
+@media (max-width: 625px) {
+  .app_details {
+    height: 950px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app_profiles {
+    width: 90%;
+    min-width: 200px;
+    margin: 0 auto 10px;
+  }
+
+  .app_details {
+    width: 90%;
+    /* height: 100%; */
+    min-width: 200px;
+    margin: 0 auto 10px;
+  }
+  .app_friends {
+    width: 90%;
+    min-width: 200px;
+    margin: 0 auto 10px;
+  }
+
+  .app_dms {
+    width: 90%;
+    min-width: 200px;
+    margin: 0 auto 10px;
+  }
+}
+@media (min-width: 1920px) {
+  .app_profiles {
+    height: 930px;
+  }
+  .app_details {
+    height: 930px;
+  }
+  .app_friends {
+    height: 600px;
+  }
+  .app_dms {
+    height: 600px;
+  }
+}

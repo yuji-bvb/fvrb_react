@@ -1,0 +1,71 @@
+.icon {
+  background-color: transparent;
+  color: lightgray;
+  font-size: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.trash {
+  text-align: right;
+  position: absolute;
+  left: 10px;
+  background-color: transparent;
+}
+.twi {
+  width: 100%;
+  margin-top: 20px;
+  margin-right: 10px;
+  text-align: center;
+}
+/* ゴミ箱モーダル */
+.modal_title {
+  text-align: center;
+}
+.btn_modal_del {
+  background-color: transparent;
+  color: gray;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+/* ブランド追加モーダル */
+.modal_add {
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* Textfieldサイズ */
+.text_size {
+  width: 250px;
+}
+.fvrb {
+  position: fixed;
+  bottom: 6%;
+  right: 6%;
+  border-radius: 50%;
+  background-color: #00bcd4;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #292f38;
+  padding: 2%;
+  z-index: 100;
+}
+
+@media (max-width: 480px) {
+  .btn_modal {
+    font-size: 30px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .modal_title {
+    font-size: 20px;
+  }
+}

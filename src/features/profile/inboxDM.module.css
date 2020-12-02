@@ -1,0 +1,23 @@
+.list_item {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 30px;
+  margin-bottom: 20px;
+}
+.list_item_mes {
+  width: 70%;
+  word-wrap: normal;
+}
+.badge {
+  background-color: transparent;
+  color: grey;
+  margin-right: 7px;
+  font-size: 22px;
+  border: none;
+  outline: none;
+}
+@media (max-width: 480px) {
+  .list_item {
+    padding-right: 10px;
+  }
+}

@@ -1,0 +1,8 @@
+.app__iconLogout {
+  background-color: transparent;
+  color: black;
+  margin-top: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}

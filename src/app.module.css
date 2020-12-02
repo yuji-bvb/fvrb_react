@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=M+PLUS+Rounded+1c&display=swap");
+* {
+  font-family: "Comic Neue", "M PLUS 1p", "Kosugi Maru", sans-serif;
+}
+.app {
+  background-color: #292f35;
+}
+body {
+  font-family: "Comic Neue", "M PLUS 1p", "Kosugi Maru", sans-serif;
+  background-color: #292f35;
+  color: lightgrey;
+}
+/* app.js */
+.container {
+  margin: 20px 0 auto;
+}
+
+h3 {
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+@media (max-width: 960px) {
+  .container {
+    margin: 40px auto auto auto;
+  }
+}
