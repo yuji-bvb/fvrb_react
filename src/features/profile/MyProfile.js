@@ -232,7 +232,7 @@ const MyProfile = () => {
               <TwitterShareButton
                 url={"https://favoroadbike.com"}
                 options={{
-                  text: "#fvrd",
+                  text: "#fvrb",
                   via: "ロードバイクを自慢しよう",
                 }}
                 className={styles.twi}
