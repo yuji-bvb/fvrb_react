@@ -73,6 +73,9 @@ export const authSlice = createSlice({
       localStorage.setItem("localJWT", action.payload.access);
       action.payload.access && (window.location.href = "/profiles");
     });
+    builder.addCase(fetchAsyncCreate.fulfilled, (state, action) => {
+      action.payload.access && (window.location.href = "/profiles");
+    });
   },
 });
 

@@ -92,6 +92,7 @@ const Auth = () => {
             await dispatch(fetchAsyncCreate(values));
             await dispatch(fetchAsyncLogin(values));
             await dispatch(fetchAsynvCreateProfile());
+            await dispatch(fetchCredEnd());
           }
         }}
         validationSchema={Yup.object().shape({
