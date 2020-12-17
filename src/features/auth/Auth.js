@@ -21,8 +21,8 @@ import {
   fetchCredEnd,
   selectIsLoginView,
   selectIsLoading,
+  selectNotLogin,
   toggleMode,
-  fetchAsynvCreateProfile,
 } from "./authSlice";
 
 const theme = createMuiTheme({
@@ -76,6 +76,7 @@ const Auth = () => {
   const classes = useStyles();
   const isLoginView = useSelector(selectIsLoginView);
   const isLoadingAuth = useSelector(selectIsLoading);
+  const notLogin = useSelector(selectNotLogin);
   const dispatch = useDispatch();
 
   return (
@@ -91,7 +92,6 @@ const Auth = () => {
           } else {
             await dispatch(fetchAsyncCreate(values));
             await dispatch(fetchAsyncLogin(values));
-            await dispatch(fetchAsynvCreateProfile());
             await dispatch(fetchCredEnd());
           }
         }}
@@ -167,6 +167,12 @@ const Auth = () => {
                   >
                     {isLoginView ? "Login" : "Register"}
                   </Button>
+                  <br />
+                  {notLogin && (
+                    <Typography variant="h5" color="error">
+                      email or password is incorrect
+                    </Typography>
+                  )}
                   <br />
                   <span
                     onClick={() => dispatch(toggleMode())}
