@@ -7,6 +7,7 @@ import cyan from "@material-ui/core/colors/cyan";
 import "./app.module.css";
 import { fetchCredEnd, fetchCredStart } from "./features/auth/authSlice";
 import {
+  fetchAsynvCreateProfile,
   fetchAsyncGetFrameBrand,
   fetchAsyncGetFriendList,
   fetchAsyncGetInbox,
@@ -54,6 +55,7 @@ const App = () => {
   useEffect(() => {
     const fetchBootLoader = async () => {
       await dispatch(fetchCredStart());
+      await dispatch(fetchAsynvCreateProfile());
       await dispatch(fetchAsyncGetMyProfile());
       await dispatch(fetchAsyncGetProfile());
       await dispatch(fetchAsyncGetInbox());

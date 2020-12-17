@@ -3,6 +3,31 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const apiUrl = process.env.REACT_APP_DEV_API_URL;
 
+export const fetchAsynvCreateProfile = createAsyncThunk(
+  "createProfile/post",
+  async () => {
+    const createData = new FormData();
+    createData.append("nickName", "名前");
+    createData.append("frameBrand", 1);
+    createData.append("frame", "フレーム");
+    createData.append("component", "1");
+    createData.append("compo", "コンポ");
+    createData.append("wheelBrand", 1);
+    createData.append("wheel", "ホイール");
+    createData.append("purchase", "2014-07-15");
+    createData.append("favCourse", "nariki");
+    createData.append("favGear", "giro");
+    createData.append("favShop", "8823 at Fussa");
+    const res = await axios.post(`${apiUrl}api/profile/`, createData, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `JWT ${localStorage.localJWT}`,
+      },
+    });
+    return res.data;
+  }
+);
+
 export const fetchAsyncGetMyProfile = createAsyncThunk(
   "myprofile/get",
   async () => {
