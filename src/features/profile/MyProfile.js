@@ -7,6 +7,8 @@ import Modal from "react-modal";
 import AddIcon from "@material-ui/icons/Add";
 import SaveIcon from "@material-ui/icons/Save";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
+import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
+import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import { MdAddAPhoto } from "react-icons/md";
 import { BsTrash } from "react-icons/bs";
 import { FaUserEdit } from "react-icons/fa";
@@ -24,6 +26,7 @@ import {
   Hidden,
   InputAdornment,
 } from "@material-ui/core";
+
 import { fetchCredEnd, fetchCredStart } from "../auth/authSlice";
 import {
   selectProfile,
@@ -116,6 +119,17 @@ const createBrand = {
     transform: "translate(-50%,-50%)",
   },
 };
+const hatena = {
+  content: {
+    backgroundColor: "#292f38",
+    width: 300,
+    height: 300,
+    maxWidth: "100%",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%,-50%)",
+  },
+};
 
 const MyProfile = () => {
   const apiUrl = process.env.REACT_APP_DEV_API_URL;
@@ -130,6 +144,7 @@ const MyProfile = () => {
   const [modalIsOpen1, setModalIsOpen1] = useState(false);
   const [modalIsOpen2, setModalIsOpen2] = useState(false);
   const [modalIsOpen3, setModalIsOpen3] = useState(false);
+  const [modalIsOpen4, setModalIsOpen4] = useState(false);
   const [image, setImage] = useState(null);
   const [inputText, setInputText] = useState("");
 
@@ -266,6 +281,47 @@ const MyProfile = () => {
           <IconButton onClick={handleEditPicture}>
             <MdAddAPhoto className={styles.icon} />
           </IconButton>
+          <IconButton onClick={() => setModalIsOpen4(true)}>
+            <HelpOutlineIcon className={styles.icon} />
+          </IconButton>
+          <Modal
+            isOpen={modalIsOpen4}
+            onRequestClose={() => setModalIsOpen4(false)}
+            style={hatena}
+          >
+            <div>
+              <div className={styles.modal_hatena_con_non}>
+                <CheckCircleOutlineIcon className={styles.icon} />
+                自分のロードバイクの情報を入力！
+              </div>
+              <div className={styles.modal_hatena_sm}>
+                <small>※メーカーがリストにない時は＋で登録</small>
+              </div>
+              <div className={styles.modal_hatena_con}>
+                <CheckCircleOutlineIcon className={styles.icon} />
+                カメラアイコンを押して写真を登録！
+              </div>
+              <div className={styles.modal_hatena_con_non}>
+                <CheckCircleOutlineIcon className={styles.icon} />
+                カメラの左のアイコンを押して保存！
+              </div>
+              <div className={styles.modal_hatena_sm}>
+                <small>※保存しないと写真は反映されません</small>
+              </div>
+              <div className={styles.modal_hatena_con}>
+                <CheckCircleOutlineIcon className={styles.icon} />
+                自転車アイコンを押すと愛車が見られます！スクショしてツイートしよう！
+              </div>
+              <div className={styles.modal_hatena_con}>
+                <CheckCircleOutlineIcon className={styles.icon} />
+                気になる写真はクリックすると詳細が見られます！
+              </div>
+              <div className={styles.modal_hatena_con}>
+                <CheckCircleOutlineIcon className={styles.icon} />
+                友達になればメッセージも送れます！
+              </div>
+            </div>
+          </Modal>
           <TextField
             type="text"
             value={editedProfile.nickName}

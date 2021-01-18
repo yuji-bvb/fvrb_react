@@ -40,6 +40,19 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.modal_hatena_con {
+  margin-bottom: 10px;
+  display: flex;
+  vertical-align: middle;
+}
+.modal_hatena_con_non {
+  display: flex;
+  vertical-align: middle;
+}
+.modal_hatena_sm {
+  margin-bottom: 10px;
+  margin-left: 30px;
+}
 /* Textfieldサイズ */
 .text_size {
   width: 250px;
