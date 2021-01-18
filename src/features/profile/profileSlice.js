@@ -202,7 +202,6 @@ export const fetchAsyncApproval = createAsyncThunk(
     uploadDataAsk.append("approved", true);
 
     const res = await axios.put(
-      // eslint-disable-next-line no-undef
       `${apiUrl}api/approval/${uploadData.id}/`,
       uploadDataAsk,
       {

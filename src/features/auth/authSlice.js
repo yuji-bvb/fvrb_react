@@ -24,35 +24,11 @@ export const fetchAsyncCreate = createAsyncThunk(
   }
 );
 
-// export const fetchAsynvCreateProfile = createAsyncThunk(
-//   "createProfile/post",
-//   async () => {
-//     const createData = new FormData();
-//     createData.append("nickName", "名前");
-//     createData.append("frameBrand", 1);
-//     createData.append("frame", "フレーム");
-//     createData.append("component", "1");
-//     createData.append("compo", "コンポ");
-//     createData.append("wheelBrand", 1);
-//     createData.append("wheel", "ホイール");
-//     createData.append("purchase", "2014-07-15");
-//     createData.append("favCourse", "nariki");
-//     createData.append("favGear", "giro");
-//     createData.append("favShop", "8823 at Fussa");
-//     const res = await axios.post(`${apiUrl}api/profile/`, createData, {
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: `JWT ${localStorage.localJWT}`,
-//       },
-//     });
-//     return res.data;
-//   }
-// );
-
 const initialState = {
   isLoginView: true,
   isLoading: false,
   notLogin: false,
+  isRegister: false,
 };
 
 export const authSlice = createSlice({
@@ -78,6 +54,9 @@ export const authSlice = createSlice({
     builder.addCase(fetchAsyncLogin.rejected, (state, action) => {
       state.notLogin = true;
     });
+    builder.addCase(fetchAsyncCreate.fulfilled, (state, action) => {
+      state.isRegister = true;
+    });
   },
 });
 
@@ -86,4 +65,5 @@ export const { fetchCredStart, fetchCredEnd, toggleMode } = authSlice.actions;
 export const selectIsLoginView = (state) => state.auth.isLoginView;
 export const selectIsLoading = (state) => state.auth.isLoading;
 export const selectNotLogin = (state) => state.auth.notLogin;
+export const selectIsRegister = (state) => state.auth.isRegister;
 export default authSlice.reducer;

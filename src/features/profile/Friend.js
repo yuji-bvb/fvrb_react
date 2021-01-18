@@ -27,7 +27,6 @@ const Friend = ({ ask, prof }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [text, setText] = useState("");
   const dispatch = useDispatch();
-  //modalサイズ
   const letter = {
     content: {
       backgroundColor: "#292f35",
@@ -39,12 +38,10 @@ const Friend = ({ ask, prof }) => {
       transform: "translate(-50%,-50%)",
     },
   };
-  // modal内入力
   const handleInputChange = () => (event) => {
     const value = event.target.value;
     setText(value);
   };
-  //DM送信
   const sendDM = () => {
     const uploadDM = new FormData();
     uploadDM.append("receiver", ask.askFrom);
@@ -52,7 +49,6 @@ const Friend = ({ ask, prof }) => {
     dispatch(fetchAsyncSendDM(uploadDM));
     setModalIsOpen(false);
   };
-  //友達承認
   const changeApproval = async () => {
     const packet = {
       id: ask.id,
