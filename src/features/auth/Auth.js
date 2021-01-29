@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import { makeStyles } from "@material-ui/core/styles";
+import styles from "./Auth.module.css";
 import {
   Avatar,
   Button,
@@ -82,6 +83,7 @@ const Auth = () => {
   return (
     <MuiThemeProvider theme={theme}>
       <Formik
+        className={styles.auth}
         initialErrors={{ email: "required" }}
         initialValues={{ email: "", password: "" }}
         onSubmit={async (values) => {
@@ -186,11 +188,11 @@ const Auth = () => {
           </div>
         )}
       </Formik>
-      <div style={{ textAlign: "center" }}>
+      <div className={styles.try}>
         <Button
           variant="contained"
           color="secondary"
-          style={{ width: "150px", marginTop: "15px" }}
+          className={styles.try_button}
           onClick={() =>
             dispatch(
               fetchAsyncLogin({ email: "test1@gmail.com", password: "test1" })
