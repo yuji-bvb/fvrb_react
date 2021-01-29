@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import MailIcon from "@material-ui/icons/Mail";
-import NotificationsIcon from "@material-ui/icons/Notifications";
+import PeopleIcon from "@material-ui/icons/People";
 import { selectAskList, selectInbox } from "../profile/profileSlice";
 
 const useStyles = makeStyles((theme) => ({
@@ -56,7 +56,8 @@ export default function PrimarySearchAppBar() {
             </IconButton>
             <IconButton aria-label="show 17 new notifications" color="inherit">
               <Badge badgeContent={askList.length} color="secondary">
-                <NotificationsIcon />
+                {/* <NotificationsIcon /> */}
+                <PeopleIcon />
               </Badge>
             </IconButton>
           </div>
