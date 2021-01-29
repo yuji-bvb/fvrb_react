@@ -15,9 +15,9 @@ export const fetchAsynvCreateProfile = createAsyncThunk(
     createData.append("wheelBrand", 1);
     createData.append("wheel", "ホイール");
     createData.append("purchase", "2014-07-15");
-    createData.append("favCourse", "nariki");
-    createData.append("favGear", "giro");
-    createData.append("favShop", "8823 at Fussa");
+    createData.append("favCourse", "お気に入りコース");
+    createData.append("favGear", "お気に入りギア");
+    createData.append("favShop", "お気に入り店");
     const res = await axios.post(`${apiUrl}api/profile/`, createData, {
       headers: {
         "Content-Type": "application/json",
@@ -63,6 +63,10 @@ export const fetchAsyncUpdateProfile = createAsyncThunk(
     uploadData.append("compo", profile.compo);
     uploadData.append("wheelBrand", profile.wheelBrand);
     uploadData.append("wheel", profile.wheel);
+    uploadData.append("favCourse", profile.favCourse);
+    uploadData.append("favGear", profile.favGear);
+    uploadData.append("favShop", profile.favShop);
+    uploadData.append("purchase", profile.purchase);
     profile.img && uploadData.append("img", profile.img, profile.img.name);
 
     const res = await axios.put(

@@ -9,6 +9,7 @@ import SaveIcon from "@material-ui/icons/Save";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
+import DetailsIcon from "@material-ui/icons/Details";
 import { MdAddAPhoto } from "react-icons/md";
 import { BsTrash } from "react-icons/bs";
 import { FaUserEdit } from "react-icons/fa";
@@ -96,6 +97,9 @@ const useStyles = makeStyles((theme) => ({
   centerAdornmentW: {
     marginLeft: "25%",
   },
+  centerAdornmentO: {
+    marginLeft: "15%",
+  },
   centerText: {
     textAlign: "center",
   },
@@ -147,6 +151,7 @@ const MyProfile = () => {
   const [modalIsOpen4, setModalIsOpen4] = useState(false);
   const [image, setImage] = useState(null);
   const [inputText, setInputText] = useState("");
+  const [openDetail, setOpenDetail] = useState(false);
 
   const updateProfile = async (e) => {
     await dispatch(fetchCredStart());
@@ -161,6 +166,10 @@ const MyProfile = () => {
       wheelBrand: editedProfile.wheelBrand,
       wheel: editedProfile.wheel,
       img: image,
+      favCourse: editedProfile.favCourse,
+      favGear: editedProfile.favGear,
+      favShop: editedProfile.favShop,
+      purchase: editedProfile.purchase,
     };
     await dispatch(fetchAsyncUpdateProfile(packet));
     await dispatch(fetchAsyncGetMyProfile());
@@ -530,13 +539,104 @@ const MyProfile = () => {
             }}
           />
           <div>
-            <button
+            <DetailsIcon
               className={styles.icon}
-              onClick={() => setModalIsOpen(true)}
-            >
-              <BsTrash />
-            </button>
+              onClick={() => setOpenDetail(!openDetail)}
+            />
           </div>
+          {openDetail && (
+            <>
+              <Typography variant="h4" component="h4">
+                FavCourse & Gear
+              </Typography>
+              <TextField
+                variant="outlined"
+                className={styles.text_size}
+                type="text"
+                value={editedProfile.favCourse}
+                name="favCourse"
+                onChange={handleInputChange}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment
+                      position="start"
+                      classes={{ positionStart: classes.centerAdornmentO }}
+                      style={{ textAlign: "center" }}
+                    >
+                      <></>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <Hidden xsUp>
+                <br />
+              </Hidden>
+              <TextField
+                variant="outlined"
+                className={styles.text_size}
+                type="text"
+                value={editedProfile.favGear}
+                name="favGear"
+                onChange={handleInputChange}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment
+                      position="start"
+                      classes={{ positionStart: classes.centerAdornmentO }}
+                      style={{ textAlign: "center" }}
+                    >
+                      <></>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <Typography variant="h4" component="h4">
+                FavShop
+              </Typography>
+              <TextField
+                variant="outlined"
+                className={styles.text_size}
+                type="text"
+                value={editedProfile.favShop}
+                name="favShop"
+                onChange={handleInputChange}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment
+                      position="start"
+                      classes={{ positionStart: classes.centerAdornmentO }}
+                      style={{ textAlign: "center" }}
+                    >
+                      <></>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              {/* <form noValidate>
+                <TextField
+                  variant="outlined"
+                  id="date"
+                  label="Purchase date"
+                  type="date"
+                  name="purchase"
+                  onChange={handleInputChange}
+                  value={editedProfile.purchase}
+                  className={styles.text_size}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                />
+              </form> */}
+              <div>
+                <button
+                  className={styles.icon}
+                  onClick={() => setModalIsOpen(true)}
+                >
+                  <BsTrash />
+                </button>
+              </div>
+            </>
+          )}
           <Modal
             isOpen={modalIsOpen}
             onRequestClose={() => setModalIsOpen(false)}
