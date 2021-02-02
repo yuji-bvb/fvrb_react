@@ -1,0 +1,12 @@
+.footer {
+  text-align: center;
+  margin: 35px auto 10px;
+}
+.footer_a {
+  text-decoration: none;
+  color: lightgray;
+  font-size: 15px;
+}
+.footer_a:visited {
+  color: lightgray;
+}
