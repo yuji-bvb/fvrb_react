@@ -10,6 +10,7 @@ import {
   CardContent,
   Typography,
   Hidden,
+  Grid,
 } from "@material-ui/core";
 import {
   fetchAsyncRequestFriend,
@@ -87,27 +88,54 @@ const Profile = ({ profileData, askData }) => {
           <CardMedia className={classes.media} image={profileData.img} />
 
           <CardContent>
-            <Typography variant="h6" color="textSecondary" component="p">
-              FRAME :{" "}
-              <Hidden smUp>
-                <br />
-              </Hidden>
-              {profileData.frameBrand_item} {profileData.frame}
-            </Typography>
-            <Typography variant="h6" color="textSecondary" component="p">
-              COMPO :{" "}
-              <Hidden smUp>
-                <br />
-              </Hidden>
-              {profileData.component_name} {profileData.compo}
-            </Typography>
-            <Typography variant="h6" color="textSecondary" component="p">
-              WHEEL :{" "}
-              <Hidden smUp>
-                <br />
-              </Hidden>
-              {profileData.wheelBrand_item} {profileData.wheel}
-            </Typography>
+            <Grid container>
+              <Grid item xs={12} sm={12} md={5}>
+                <Typography variant="h6" color="textSecondary" component="p">
+                  FRAME :{" "}
+                  <Hidden smUp>
+                    <br />
+                  </Hidden>
+                  {profileData.frameBrand_item} {profileData.frame}
+                </Typography>
+                <Typography variant="h6" color="textSecondary" component="p">
+                  COMPO :{" "}
+                  <Hidden smUp>
+                    <br />
+                  </Hidden>
+                  {profileData.component_name} {profileData.compo}
+                </Typography>
+                <Typography variant="h6" color="textSecondary" component="p">
+                  WHEEL :{" "}
+                  <Hidden smUp>
+                    <br />
+                  </Hidden>
+                  {profileData.wheelBrand_item} {profileData.wheel}
+                </Typography>
+              </Grid>
+              <Grid itemxs={12} sm={12} md={5}>
+                <Typography variant="h6" color="textSecondary" component="p">
+                  FavCourse:{" "}
+                  <Hidden smUp>
+                    <br />
+                  </Hidden>
+                  {profileData.favCourse}
+                </Typography>
+                <Typography variant="h6" color="textSecondary" component="p">
+                  FavGear:{" "}
+                  <Hidden smUp>
+                    <br />
+                  </Hidden>
+                  {profileData.favGear}
+                </Typography>
+                <Typography variant="h6" color="textSecondary" component="p">
+                  FavShop:{" "}
+                  <Hidden smUp>
+                    <br />
+                  </Hidden>
+                  {profileData.favShop}
+                </Typography>
+              </Grid>
+            </Grid>
           </CardContent>
         </Card>
       </Modal>
