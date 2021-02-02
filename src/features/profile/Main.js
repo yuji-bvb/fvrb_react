@@ -5,6 +5,7 @@ import Profile from "./Profile";
 import MyProfile from "./MyProfile";
 import Friend from "./Friend";
 import InboxDM from "./InboxDM";
+import Footer from "../../Footer";
 import { Grid, CircularProgress } from "@material-ui/core";
 import { GoMail } from "react-icons/go";
 import { BsFillPeopleFill } from "react-icons/bs";
@@ -160,6 +161,7 @@ const Main = () => {
           ></Grid>
         </Grid>
       </Grid>
+      <Footer />
       {/* )} */}
     </>
   );

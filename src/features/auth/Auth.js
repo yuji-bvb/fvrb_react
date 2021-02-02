@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "./Auth.module.css";
+import Footer from "../../Footer";
 import {
   Avatar,
   Button,
@@ -10,9 +11,11 @@ import {
   TextField,
   Typography,
   CircularProgress,
+  Tooltip,
 } from "@material-ui/core";
 import { cyan } from "@material-ui/core/colors";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import { FcGoogle } from "react-icons/fc";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import {
@@ -188,20 +191,40 @@ const Auth = () => {
           </div>
         )}
       </Formik>
-      <div className={styles.try}>
-        <Button
-          variant="contained"
-          color="secondary"
-          className={styles.try_button}
-          onClick={() =>
-            dispatch(
-              fetchAsyncLogin({ email: "test1@gmail.com", password: "test1" })
-            )
-          }
-        >
-          TRY IT !
-        </Button>
+      <div className="center">
+        <Tooltip title="お試しログイン">
+          <div className={styles.mt_15}>
+            <Button
+              className={styles.try_btn}
+              variant="contained"
+              color="secondary"
+              onClick={() =>
+                dispatch(
+                  fetchAsyncLogin({
+                    email: "test1@gmail.com",
+                    password: "test1",
+                  })
+                )
+              }
+            >
+              TRY IT !
+            </Button>
+          </div>
+        </Tooltip>
+        <Tooltip title="おすすめスポット！">
+          <div className={styles.mt_15}>
+            <Button
+              variant="contained"
+              className={styles.map_btn}
+              onClick={() => (window.location.href = "/map")}
+            >
+              <FcGoogle />
+              Favo map
+            </Button>
+          </div>
+        </Tooltip>
       </div>
+      <Footer />
     </MuiThemeProvider>
   );
 };
