@@ -6,3 +6,10 @@
   outline: none;
   cursor: pointer;
 }
+.react_icons_btn {
+  padding: 0;
+}
+.react_icons {
+  font-size: 24px;
+  padding: 0;
+}

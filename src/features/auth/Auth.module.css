@@ -1,10 +1,20 @@
+.center {
+  text-align: center;
+}
 .auth {
   height: 486px;
 }
-.try {
+.auth_btn {
   text-align: center;
 }
-.try_button {
+.try_btn {
   width: 150px;
-  margin-top: 15px;
+}
+.map_btn {
+  color: white;
+  width: 150px;
+}
+.mt_15 {
+  margin-top: 10px;
+  text-align: center;
 }
