@@ -26,6 +26,7 @@ import {
   Button,
   Hidden,
   InputAdornment,
+  Tooltip,
 } from "@material-ui/core";
 
 import { fetchCredEnd, fetchCredStart } from "../auth/authSlice";
@@ -276,23 +277,31 @@ const MyProfile = () => {
           editedProfile.frame &&
           editedProfile.compo &&
           editedProfile.wheel ? (
-            <IconButton onClick={updateProfile}>
-              <FaUserEdit className={styles.icon} />
-            </IconButton>
+            <Tooltip title="プロフィール変更">
+              <IconButton onClick={updateProfile}>
+                <FaUserEdit className={styles.icon} />
+              </IconButton>
+            </Tooltip>
           ) : (
-            <IconButton disabled>
-              <FaUserEdit
-                className={styles.icon}
-                style={{ color: "#3a3636" }}
-              />
-            </IconButton>
+            <Tooltip title="入力が完了していません">
+              <IconButton disabled>
+                <FaUserEdit
+                  className={styles.icon}
+                  style={{ color: "#3a3636" }}
+                />
+              </IconButton>
+            </Tooltip>
           )}
-          <IconButton onClick={handleEditPicture}>
-            <MdAddAPhoto className={styles.icon} />
-          </IconButton>
-          <IconButton onClick={() => setModalIsOpen4(true)}>
-            <HelpOutlineIcon className={styles.icon} />
-          </IconButton>
+          <Tooltip title="写真アップロード">
+            <IconButton onClick={handleEditPicture}>
+              <MdAddAPhoto className={styles.icon} />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="説明書">
+            <IconButton onClick={() => setModalIsOpen4(true)}>
+              <HelpOutlineIcon className={styles.icon} />
+            </IconButton>
+          </Tooltip>
           <Modal
             isOpen={modalIsOpen4}
             onRequestClose={() => setModalIsOpen4(false)}
@@ -351,14 +360,16 @@ const MyProfile = () => {
           />
           <hr />
           <Typography variant="h4" component="h4">
-            <Fab
-              size="small"
-              color="primary"
-              onClick={() => setModalIsOpen2(true)}
-              style={{ marginRight: 10, marginBottom: 5 }}
-            >
-              <AddIcon />
-            </Fab>
+            <Tooltip title="ブランド追加">
+              <Fab
+                size="small"
+                color="primary"
+                onClick={() => setModalIsOpen2(true)}
+                style={{ marginRight: 10, marginBottom: 5 }}
+              >
+                <AddIcon />
+              </Fab>
+            </Tooltip>
             FRAME
           </Typography>
           <Modal
@@ -467,14 +478,16 @@ const MyProfile = () => {
           />
           <hr />
           <Typography variant="h4" component="h4">
-            <Fab
-              size="small"
-              color="primary"
-              onClick={() => setModalIsOpen3(true)}
-              style={{ marginRight: 10, marginBottom: 5 }}
-            >
-              <AddIcon />
-            </Fab>
+            <Tooltip title="ブランド追加">
+              <Fab
+                size="small"
+                color="primary"
+                onClick={() => setModalIsOpen3(true)}
+                style={{ marginRight: 10, marginBottom: 5 }}
+              >
+                <AddIcon />
+              </Fab>
+            </Tooltip>
             WHEEL
           </Typography>
 
@@ -539,10 +552,12 @@ const MyProfile = () => {
             }}
           />
           <div>
-            <DetailsIcon
-              className={styles.icon}
-              onClick={() => setOpenDetail(!openDetail)}
-            />
+            <Tooltip title="詳細">
+              <DetailsIcon
+                className={styles.icon}
+                onClick={() => setOpenDetail(!openDetail)}
+              />
+            </Tooltip>
           </div>
           {openDetail && (
             <>
