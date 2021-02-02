@@ -10,9 +10,12 @@ import {
   Badge,
 } from "@material-ui/core";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import Tooltip from "@material-ui/core/Tooltip";
+import { Button } from "@material-ui/core";
 import MailIcon from "@material-ui/icons/Mail";
 import PeopleIcon from "@material-ui/icons/People";
 import { selectAskList, selectInbox } from "../profile/profileSlice";
+import { FcGoogle } from "react-icons/fc";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -49,16 +52,34 @@ export default function PrimarySearchAppBar() {
           </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={inbox.length} color="secondary">
-                <MailIcon />
-              </Badge>
+            <IconButton
+              aria-label="go to map"
+              color="inherit"
+              className={styles.g_btn}
+            >
+              <Tooltip title="おすすめスポット！">
+                <Button
+                  className={styles.react_icons_btn}
+                  onClick={() => (window.location.href = "/map")}
+                >
+                  <FcGoogle className={styles.react_icons} />
+                </Button>
+              </Tooltip>
+            </IconButton>
+
+            <IconButton aria-label="show mails" color="inherit">
+              <Tooltip title="ダイレクトメール">
+                <Badge badgeContent={inbox.length} color="secondary">
+                  <MailIcon />
+                </Badge>
+              </Tooltip>
             </IconButton>
             <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={askList.length} color="secondary">
-                {/* <NotificationsIcon /> */}
-                <PeopleIcon />
-              </Badge>
+              <Tooltip title="友達">
+                <Badge badgeContent={askList.length} color="secondary">
+                  <PeopleIcon />
+                </Badge>
+              </Tooltip>
             </IconButton>
           </div>
           <div>
