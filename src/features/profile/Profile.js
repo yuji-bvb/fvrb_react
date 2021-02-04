@@ -11,6 +11,7 @@ import {
   Typography,
   Hidden,
   Grid,
+  Link,
 } from "@material-ui/core";
 import {
   fetchAsyncRequestFriend,
@@ -50,6 +51,12 @@ const Profile = ({ profileData, askData }) => {
   const dispatch = useDispatch();
   Modal.setAppElement("#root");
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const gearUrl = `https://www.google.com/search?q=${profileData.favGear}`;
+  const courseUrl = `https://www.google.com/search?q=${profileData.favCourse}`;
+  const shopUrl = `https://www.google.com/search?q=${profileData.favShop}`;
+  const frameUrl = `https://www.google.com/search?q=${profileData.frame}`;
+  const wheelUrl = `https://www.google.com/search?q=${profileData.wheel}`;
+  const compoUrl = `https://www.google.com/search?q=${profileData.compo}`;
 
   const newRequest = async () => {
     const askUploadData = new FormData();
@@ -95,21 +102,24 @@ const Profile = ({ profileData, askData }) => {
                   <Hidden smUp>
                     <br />
                   </Hidden>
-                  {profileData.frameBrand_item} {profileData.frame}
+                  {profileData.frameBrand_item}{" "}
+                  <Link href={frameUrl}>{profileData.frame}</Link>
                 </Typography>
                 <Typography variant="h6" color="textSecondary" component="p">
                   COMPO :{" "}
                   <Hidden smUp>
                     <br />
                   </Hidden>
-                  {profileData.component_name} {profileData.compo}
+                  {profileData.component_name}{" "}
+                  <Link href={compoUrl}>{profileData.compo}</Link>
                 </Typography>
                 <Typography variant="h6" color="textSecondary" component="p">
                   WHEEL :{" "}
                   <Hidden smUp>
                     <br />
                   </Hidden>
-                  {profileData.wheelBrand_item} {profileData.wheel}
+                  {profileData.wheelBrand_item}{" "}
+                  <Link href={wheelUrl}>{profileData.wheel}</Link>
                 </Typography>
               </Grid>
               <Grid itemxs={12} sm={12} md={5}>
@@ -118,21 +128,21 @@ const Profile = ({ profileData, askData }) => {
                   <Hidden smUp>
                     <br />
                   </Hidden>
-                  {profileData.favCourse}
+                  <Link href={courseUrl}>{profileData.favCourse}</Link>
                 </Typography>
                 <Typography variant="h6" color="textSecondary" component="p">
                   FavGear:{" "}
                   <Hidden smUp>
                     <br />
                   </Hidden>
-                  {profileData.favGear}
+                  <Link href={gearUrl}>{profileData.favGear}</Link>
                 </Typography>
                 <Typography variant="h6" color="textSecondary" component="p">
                   FavShop:{" "}
                   <Hidden smUp>
                     <br />
                   </Hidden>
-                  {profileData.favShop}
+                  <Link href={shopUrl}>{profileData.favShop}</Link>
                 </Typography>
               </Grid>
             </Grid>
