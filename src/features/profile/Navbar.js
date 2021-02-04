@@ -69,22 +69,28 @@ export default function PrimarySearchAppBar() {
 
             <IconButton aria-label="show mails" color="inherit">
               <Tooltip title="ダイレクトメール">
-                <Badge badgeContent={inbox.length} color="secondary">
-                  <MailIcon />
-                </Badge>
+                <a href="#mail">
+                  <Badge badgeContent={inbox.length} color="secondary">
+                    <MailIcon />
+                  </Badge>
+                </a>
               </Tooltip>
             </IconButton>
             <IconButton aria-label="show 17 new notifications" color="inherit">
               <Tooltip title="友達">
-                <Badge badgeContent={askList.length} color="secondary">
-                  <PeopleIcon />
-                </Badge>
+                <a href="#friend">
+                  <Badge badgeContent={askList.length} color="secondary">
+                    <PeopleIcon />
+                  </Badge>
+                </a>
               </Tooltip>
             </IconButton>
           </div>
           <div>
             <button className={styles.app__iconLogout} onClick={Logout}>
-              <ExitToAppIcon fontSize="large" />
+              <Tooltip title="ログアウト">
+                <ExitToAppIcon fontSize="large" />
+              </Tooltip>
             </button>
           </div>
         </Toolbar>

@@ -98,7 +98,7 @@ const Main = () => {
         <Grid item xs={12} sm={12} md={3}>
           <Grid container spacing={0}>
             <div className={styles.app_friends}>
-              <h3>
+              <h3 id="friend">
                 <BsFillPeopleFill className={styles.badge} />
                 Friend
               </h3>
@@ -127,7 +127,7 @@ const Main = () => {
         <Grid item xs={12} sm={12} md={6}>
           <Grid container spacing={0} justify="center">
             <div className={styles.app_dms}>
-              <h3>
+              <h3 id="mail">
                 <GoMail className={styles.badge} />
                 DM
               </h3>
